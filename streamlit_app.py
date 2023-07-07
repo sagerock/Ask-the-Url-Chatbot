@@ -28,7 +28,7 @@ def generate_response(url, query_text):
     retriever = db.as_retriever()
     # Create QA chain
     # qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key, model="gpt-4", temperature=.4), chain_type='stuff', retriever=retriever)
-    qa = RetrievalQA.from_chain_type(llm=OpenAI((openai_api_key=openai_api_key), chain_type="stuff", retriever=docsearch.as_retriever())
+    qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key), chain_type="stuff", retriever=retriever)
 
     return qa.run(query_text)
 
