@@ -40,7 +40,7 @@ st.title('🦜🔗 Ask the URL App')
 url = st.text_input('Enter URL:', placeholder = 'Please provide a URL.', value='')
 
 # Query text
-query_text = st.text_input('Enter your question:', placeholder = 'Please provide a short summary.', disabled=not url)
+query_text = st.text_area('Enter your question:', placeholder = 'Please provide a short summary.', disabled=not url)
 
 # Form input and query
 result = []
