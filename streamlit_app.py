@@ -27,12 +27,13 @@ def generate_response(url, query_text):
     # Create retriever interface
     retriever = db.as_retriever()
     # Create QA chain
-    qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key), chain_type='stuff', retriever=retriever)
+    qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=openai_api_key, model="gpt-4", temperature=.4), chain_type='stuff', retriever=retriever)
+
     return qa.run(query_text)
 
 # Page title
-st.set_page_config(page_title='🦜🔗 Ask the Doc App')
-st.title('🦜🔗 Ask the Doc App')
+st.set_page_config(page_title='🦜🔗 Ask the URL App')
+st.title('🦜🔗 Ask the URL App')
 
 # URL input
 url = st.text_input('Enter URL:', placeholder = 'Please provide a URL.', value='')
